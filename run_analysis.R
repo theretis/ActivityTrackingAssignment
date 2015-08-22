@@ -54,9 +54,8 @@ if(!file.exists(dataFolder)){
 }
 
 #test download and unzip successful and stop if not
-if (!file.exists(file.path(dataFolder, dataSourceFolder))) {
-        stop("Stopping - download was unsuccessful")
-}
+dataFolderExists = file.exists(file.path(dataFolder, dataSourceFolder))
+stopifnot(dataFolderExists)
 
 #set working directory to access data source
 setwd(file.path(dataFolder, dataSourceFolder))
